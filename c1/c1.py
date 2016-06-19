@@ -1,15 +1,15 @@
 import requests
 import random
-import  re
+import re
 from bs4 import BeautifulSoup
 
-'''
-content = requests.get('http://www.qiushibaike.com').content
-soup = BeautifulSoup(content, 'html.parser')
 
-for div in soup.find_all('div', {'class':'content'}):
-    print div.text.strip()
-'''
+def qiushibaike():
+    content = requests.get('http://www.qiushibaike.com').content
+    soup = BeautifulSoup(content, 'html.parser')
+
+    for div in soup.find_all('div', {'class': 'content'}):
+        print div.text.strip()
 
 
 def demo_string():
@@ -172,52 +172,58 @@ class Admin(User):
     def __repr__(self):
         return 'im ' + self.name + ' ' + str(self.uid) + ' ' + self.group
 
+
 def demo_exception():
     try:
-        print 2/1
-      #  print 2/0
-        raise Exception('Raise Error','NowCoder')
+        print 2 / 1
+        #  print 2/0
+        raise Exception('Raise Error', 'NowCoder')
     except Exception as e:
-        print 'error:',e
+        print 'error:', e
     finally:
         print 'clean up'
 
+
 def demo_random():
-    #1-100
-    #random.seed(1)
+    # 1-100
+    # random.seed(1)
     # x=prex*10007%xxx
     # prex=x
-    print 1,int(random.random()*100)
-    print 2,random.randint(0,100)
-    print 3,random.choice(range(0,100,10))
-    print 4,random.sample(range(0,100),4)
-    a=[1,2,3,4,5]
+    print 1, int(random.random() * 100)
+    print 2, random.randint(0, 100)
+    print 3, random.choice(range(0, 100, 10))
+    print 4, random.sample(range(0, 100), 4)
+    a = [1, 2, 3, 4, 5]
     random.shuffle(a)
-    print 5,a
+    print 5, a
+
 
 def demo_re():
-    str='abc123def456gh78'
-    p1=re.compile('[\d]+')
-    p2=re.compile('\d')
-    print 1,p1.findall(str)
-    print 2,p2.findall(str)
+    str = 'abc123def456gh78'
+    p1 = re.compile('[\d]+')
+    p2 = re.compile('\d')
+    print 1, p1.findall(str)
+    print 2, p2.findall(str)
 
-    stra='a@163.com,b@126.com,c@gmail.com,d@qq.com,e@163.com'
-    p3=re.compile('[\w]+@[163|qq]+\.com')
+    stra = 'a@163.com,b@126.com,c@gmail.com,d@qq.com,e@163.com'
+    p3 = re.compile('[\w]+@[163|qq]+\.com')
     print 3, p3.findall(stra)
 
-    str='<html><h>title</h><body>xxxx</body></html>'
-    p4=re.compile('<h>[^<]+</h>')
-    print 4,p4.findall(str)
+    str = '<html><h>title</h><body>xxxx</body></html>'
+    p4 = re.compile('<h>[^<]+</h>')
+    print 4, p4.findall(str)
     p5 = re.compile('<h>([^<]+)</h><body>([^<]+)</body>')
-    print 5,p5.findall(str)
+    print 5, p5.findall(str)
 
-    str='xx2016-06-19yy'
-    p6=re.compile('\d\d\d\d-\d\d-\d\d')
-    print 6,p6.findall(str)
+    str = 'xx2016-06-19yy'
+    p6 = re.compile('\d\d\d\d-\d\d-\d\d')
+    print 6, p6.findall(str)
     p7 = re.compile('\d{4}-\d{2}-\d{2}')
-    print 7,p7.findall(str)
+    print 7, p7.findall(str)
+
+
 if __name__ == '__main__':
+    qiushibaike()
     # print 'hello world'
     # demo_string()
     # demo_operation()
@@ -232,6 +238,6 @@ if __name__ == '__main__':
     admin1 = Admin('a1', 101, 'a')
     print admin1
 '''
-   # demo_exception()
-    #demo_random()
-    demo_re()
+    # demo_exception()
+    # demo_random()
+    # demo_re()
